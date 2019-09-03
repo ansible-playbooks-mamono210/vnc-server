@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars_files:
+    - vars/default.yml
+  become: True
+
+  roles:
+    - role: geerlingguy.repo-epel
+    - role: vncserver
