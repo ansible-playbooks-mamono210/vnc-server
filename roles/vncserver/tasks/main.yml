@@ -1,3 +1,4 @@
+---
 - name: Install X Window System with yum
   yum:
     name: "@X Window System"
@@ -52,8 +53,17 @@
     group: '{{ vnc_user }}'
     mode: 0755
 
+- name: Check whether vnc password is set
+  command: "test -e /home/{{ vnc_user }}/.vnc/passwd"
+  register: VNCPASSWORD_SET
+  changed_when: False
+  ignore_errors: True
+
 - name: Set default password
-  shell: "echo {{ vnc_password }} | vncpasswd -f > /home/{{ vnc_user }}/.vnc/passwd"
+  shell: |
+    set -o pipefail
+    echo {{ vnc_password }} | vncpasswd -f > /home/{{ vnc_user }}/.vnc/passwd
+  when: VNCPASSWORD_SET is failed
 
 - name: Change permission of password settings file
   file:
