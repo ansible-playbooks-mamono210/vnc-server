@@ -23,6 +23,14 @@ jobs:
             ${{ runner.os }}-pip-
             ${{ runner.os }}-
 
+      - name: Set latest AMI image id to molecule.yml
+        run: |
+          git clone https://github.com/packer-tm/aws-ami_centos7.git
+          cd aws-ami_centos7
+          AMI_ID=$(git branch -a | grep ami- | sed 's/^[ \t]*remotes\/origin\///g')
+          cd ..
+          sed -i -e "s/'{{ AMI_ID }}'/${AMI_ID}/" molecule/default/molecule.yml
+
       - name: Install dependencies
         run: pip install -r molecule/requirements.txt
 
