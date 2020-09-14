@@ -4,7 +4,7 @@ dependency:
 driver:
   name: ec2
 platforms:
-  - name: vnc-server
+  - name: vnc_server
     image: '{{ AMI_ID }}'
     instance_type: t2.micro
     instance_tags:

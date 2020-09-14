@@ -14,15 +14,6 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Cache pip
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('molecule/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-            ${{ runner.os }}-
-
       - name: Set latest AMI image id to molecule.yml
         run: |
           git clone https://github.com/packer-tm/aws-ami_centos7.git

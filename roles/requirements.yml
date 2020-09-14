@@ -1,2 +1,4 @@
 ---
-- geerlingguy.repo-epel
+- robertdebock.epel
+- src: https://github.com/ansible-roles-matsumura/vnc_server.git
+  name: matsumura.vnc_server

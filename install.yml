@@ -3,5 +3,5 @@
   become: True
 
   roles:
-    - role: geerlingguy.repo-epel
-    - role: vncserver
+    - role: robertdebock.epel
+    - role: matsumura.vnc_server
