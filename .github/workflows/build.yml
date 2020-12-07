@@ -44,7 +44,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ap-northeast-1
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Set timestamp for making sure Molecule would create unique AWS resources
         run: |
@@ -60,8 +60,8 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           VPC_SUBNET_ID: ${{ secrets.VPC_SUBNET_ID }}
-          EC2_REGION: ap-northeast-1
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
 
