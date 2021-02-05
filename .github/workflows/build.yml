@@ -76,6 +76,11 @@ jobs:
           TZ: 'Asia/Tokyo'
           VPC_SUBNET_ID: ${{ secrets.VPC_SUBNET_ID }}
 
+      - name: Show Ansible version
+        run: |
+          pip list | grep ansible
+          ansible --version
+
       - name: Show Molecule version
         run: molecule --version
 
