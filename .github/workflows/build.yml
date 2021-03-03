@@ -121,7 +121,10 @@ jobs:
           ansible --version
 
       - name: Show Molecule version
-        run: molecule --version
+        run: |
+          molecule --version
+        env:
+          PY_COLORS: '1'
 
   trailing-whitespace:
     name: Find Trailing Whitespace
