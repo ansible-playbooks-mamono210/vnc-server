@@ -1,4 +1,4 @@
-[![](https://github.com/ansible-playbooks-centos7/vnc-server/workflows/build/badge.svg)](https://github.com/ansible-playbooks-centos7/vnc-server/actions?query=workflow%3Abuild)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ansible-playbooks-mamono210/vnc-server/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ansible-playbooks-mamono210/vnc-server/tree/main)
 
 # Ansible Playbook - vnc-server
 
