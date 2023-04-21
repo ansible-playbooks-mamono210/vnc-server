@@ -4,5 +4,5 @@
   become: True
 
   roles:
-    - role: robertdebock.epel
-    - role: matsumura.vnc_server
+    - role: mamono210.epel
+    - role: mamono210.vnc_server

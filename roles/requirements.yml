@@ -1,4 +1,6 @@
 ---
-- robertdebock.epel
-- src: https://github.com/ansible-roles-matsumura/vnc_server.git
-  name: matsumura.vnc_server
+roles:
+  - name: mamono210.epel
+    src: https://github.com/ansible-roles-mamono210/epel.git
+  - name: mamono210.vnc_server
+    src: https://github.com/ansible-roles-mamono210/vnc_server.git
