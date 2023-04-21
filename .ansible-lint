@@ -1,5 +1,4 @@
 ---
 parseable: true
 warn_list:
-  - name[casing]
   - schema
