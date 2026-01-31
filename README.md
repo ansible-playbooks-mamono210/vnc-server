@@ -4,21 +4,21 @@
 
 ## Introduction
 
-This program installs [VNC Server](https://tigervnc.org) on CentOS7.
+This program installs [VNC Server](https://tigervnc.org) on CentOS Stream 9.
 
 ## How To install
 
 1. Install ansible and git
 
 ```
-sudo yum -y install epel-release git
-sudo yum -y install ansible
+sudo dnf -y install git
+sudo dnf -y install ansible
 ```
 
 2. Execute playbook as root
 
 ```
-git clone https://github.com/ansible-playbooks-centos7/vnc-server.git
+git clone https://github.com/ansible-playbooks-mamono210/vnc-server.git
 cd vnc-server
 ansible-playbook -i localhost, -c local install.yml
 ```

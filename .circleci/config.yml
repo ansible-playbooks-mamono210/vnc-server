@@ -41,12 +41,11 @@ jobs:
         type: string
     steps:
       - checkout
-      - aws-cli/setup
       - aws-cli/setup:
           profile-name: default
           role-arn: ${AWS_ROLE_ARN}
           role-session-name: << parameters.aws-resource-name >>
-          session-duration: '2100'
+          session-duration: '3600'
       - run:
           name: Install Ansible roles
           command: ansible-galaxy install -r molecule/<< parameters.molecule-scenario-name >>/requirements.yml
@@ -84,14 +83,14 @@ workflows:
           requires:
             - yamllint
       - molecule-ec2:
-          ansible-user: centos
-          aws-ami-name: 'centos7-1*'
+          ansible-user: ec2-user
+          aws-ami-name: centos-stream9-1*
           aws-ami-owner-id: '808683561341'
-          aws-instance-type: 't2.micro'
-          aws-resource-name: 'circleci_ansible-playbook_vnc-server_centos7'
-          aws-vpc-subnet-id: 'subnet-022a704b3061b8b39'
-          circleci-timeout: '20m'
-          molecule-scenario-name: 'default'
+          aws-instance-type: t2.micro
+          aws-resource-name: circleci_ansible_playbook_vnc_server_cs9
+          aws-vpc-subnet-id: subnet-022a704b3061b8b39
+          circleci-timeout: 60m
+          molecule-scenario-name: default
           context: AWS_OPENID_CONNECT_TOKENS
           requires:
             - ansible-lint

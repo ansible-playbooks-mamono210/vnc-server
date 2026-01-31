@@ -4,5 +4,4 @@
   become: True
 
   roles:
-    - role: mamono210.epel
     - role: mamono210.vnc_server
