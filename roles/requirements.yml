@@ -1,4 +1,6 @@
 ---
 roles:
+  - name: mamono210.ja_desktop
+    src: https://github.com/ansible-roles-mamono210/ja_desktop.git
   - name: mamono210.vnc_server
     src: https://github.com/ansible-roles-mamono210/vnc_server.git

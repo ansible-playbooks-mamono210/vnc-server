@@ -5,3 +5,48 @@ vnc_geometry: '1920x1080'
 vnc_password: vncpassword
 vnc_session_command: /usr/bin/gnome-session
 vnc_user: ec2-user
+
+# ロケール（既に locale Role があるなら、ここは false にしてもOK）
+ja_desktop_set_locale: true
+ja_desktop_lang: "ja_JP.UTF-8"
+
+# IME エンジン: "anthy" か "mozc"
+ja_desktop_ime_engine: "anthy"
+
+# mozc 利用時に EPEL を有効化（必要になることが多い）
+ja_desktop_enable_epel_for_mozc: true
+
+# 日本語フォント
+ja_desktop_install_fonts: true
+ja_desktop_font_packages:
+  - google-noto-sans-cjk-ttc-fonts
+  - google-noto-serif-cjk-ttc-fonts
+
+# IME パッケージ（基本）
+ja_desktop_base_packages:
+  - glibc-langpack-ja
+  - langpacks-ja
+  - ibus
+
+ja_desktop_ime_packages_anthy:
+  - ibus-anthy
+
+ja_desktop_ime_packages_mozc:
+  - ibus-mozc
+  - mozc
+
+# 環境変数（X/GTK/Qt で IME を効かせる）
+ja_desktop_install_profiled_env: true
+ja_desktop_profiled_env_path: "/etc/profile.d/ja_ime.sh"
+
+# VNC ユーザーの xstartup を整備するか
+ja_desktop_configure_vnc_xstartup: true
+
+# 設定対象のVNCユーザー（必要な分だけ追加）
+# desktop_command は環境に合わせて変更してください（例：startxfce4 / gnome-session）
+ja_desktop_vnc_users: []
+# 例:
+# ja_desktop_vnc_users:
+#   - name: "ec2-user"
+#     home: "/home/ec2-user"
+#     desktop_command: "startxfce4"

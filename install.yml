@@ -1,7 +1,8 @@
 ---
 - name: Install VNC server
   hosts: all
-  become: True
+  become: true
 
   roles:
     - role: mamono210.vnc_server
+    - role: mamono210.ja_desktop

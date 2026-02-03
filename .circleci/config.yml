@@ -86,7 +86,7 @@ workflows:
           ansible-user: ec2-user
           aws-ami-name: centos-stream9-1*
           aws-ami-owner-id: '808683561341'
-          aws-instance-type: t2.micro
+          aws-instance-type: t2.medium
           aws-resource-name: circleci_ansible_playbook_vnc_server_cs9
           aws-vpc-subnet-id: subnet-022a704b3061b8b39
           circleci-timeout: 60m
