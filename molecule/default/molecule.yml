@@ -36,6 +36,12 @@ provisioner:
       callbacks_enabled: ansible.posix.profile_tasks
   connection_options:
     ansible_user: ${ANSIBLE_USER}
+    vnc_depth: '24'
+    vnc_display: ':1'
+    vnc_geometry: '1920x1080'
+    vnc_password: 'vncpassword'
+    vnc_session_command: '/usr/bin/gnome-session'
+    vnc_user: 'ec2-user'
   log: true
   playbooks:
     converge: ../../install.yml
@@ -49,5 +55,6 @@ scenario:
     - syntax
     - create
     - converge
+    - verify
     - cleanup
     - destroy

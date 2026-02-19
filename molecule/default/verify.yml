@@ -1,0 +1,36 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Gather service facts
+      ansible.builtin.service_facts:
+
+    - name: Check whether Docker installed
+      ansible.builtin.command: docker --version
+      ignore_errors: true
+      register: docker_installed
+      changed_when: false
+
+    - name: Check whether vim is installed
+      ansible.builtin.command: vim --version
+      register: vim_version
+      changed_when: false
+      ignore_errors: true
+
+    - name: Make sure Docker is installed
+      ansible.builtin.debug:
+        var: docker_installed
+
+    - name: Assert VNC service is running
+      ansible.builtin.assert:
+        that:
+          - "'vncserver@{{ vnc_display }}.service' in ansible_facts.services"
+          - ansible_facts.services['vncserver@{{ vnc_display }}.service'].state == 'running'
+        fail_msg: "VNC service is not running: vncserver@{{ vnc_display }}.service"
+        success_msg: "VNC service is running: vncserver@{{ vnc_display }}.service"
+
+    - name: Make sure vim is installed
+      ansible.builtin.debug:
+        var: vim_version

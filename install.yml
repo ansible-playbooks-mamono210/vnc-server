@@ -4,5 +4,15 @@
   become: true
 
   roles:
-    - role: mamono210.vnc_server
+    - role: mamono210.docker
+      tags:
+        - docker
     - role: mamono210.ja_desktop
+      tags:
+        - ja_desktop
+    - role: mamono210.vim
+      tags:
+        - vim
+    - role: mamono210.vnc_server
+      tags:
+        - vnc_server
