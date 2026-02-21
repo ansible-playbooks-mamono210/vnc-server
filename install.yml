@@ -7,6 +7,9 @@
     - role: mamono210.docker
       tags:
         - docker
+    - role: mamono210.git
+      tags:
+        - git
     - role: mamono210.ja_desktop
       tags:
         - ja_desktop
