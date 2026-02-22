@@ -21,7 +21,10 @@ jobs:
       - ansible-lint/execute:
           molecule-playbook-test: true
   molecule-ec2:
-    executor: molecule-ec2/default
+    executor:
+      name: molecule-ec2/default
+      image: ghcr.io/docker-images-mamono210/circleci-executors/molecule-default:latest
+      resource_class: small
     parameters:
       ansible-user:
         type: string
